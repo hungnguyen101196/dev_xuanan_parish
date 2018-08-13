@@ -11,12 +11,13 @@
 
 <body class="">
 
-    {{> header}}   <main>
-   {{> sidebar_menu}}
-    
-     {{{body}}}
+    {{> header}}
+    <main>
+        {{> sidebar_menu}}
+        {{{body}}}
+        {{> footer}}
     </main>
-      {{> footer}} {{> js}}
+    {{> js}}
 </body>
 
 </html>
