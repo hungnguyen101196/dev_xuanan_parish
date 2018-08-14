@@ -1,8 +1,21 @@
-/* header */
+body {
+    background: #eee;
+}
 
 .text-size {
     font-size: .9rem;
 }
+
+button {
+    cursor: pointer;
+}
+
+.waves-effect {
+    overflow: unset;
+}
+
+
+/* header */
 
 header {
     background: #fff;
@@ -38,6 +51,31 @@ nav.navbar {
     background: none;
     position: relative;
     left: -40px;
+}
+
+.btn-account.btn {
+    padding: 0;
+}
+
+.btn-account {
+    height: 30px;
+    width: 30px;
+    outline: none;
+    border: none;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+}
+
+.btn-account.dropdown-toggle::after {
+    display: none;
+}
+
+.nav-item .dropdown .dropdown-menu {
+    left: -100%;
+    transform: translate(-50%);
 }
 
 .nav-link.btn.bmd-btn-fab {
@@ -131,7 +169,7 @@ aside {
     display: block;
 }
 
-.link-menu-aside.waves-effect.waves-light {
+.link-menu-aside {
     text-align: left;
 }
 

@@ -7,6 +7,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>{{title}}</title>
     {{> css}}
+    <script src="/javascripts/bower_components/jquery/dist/jquery.min.js"></script>
+
 </head>
 
 <body class="">
@@ -15,6 +17,7 @@
     <main>
         {{> sidebar_menu}}
         {{{body}}}
+        {{> user/modal}}
         {{> footer}}
     </main>
     {{> js}}
