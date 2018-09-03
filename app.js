@@ -4,11 +4,17 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var hbs = require('express-handlebars')
-
+var session = require('express-session');
 var authRouter = require('./routes/authRouter');
 var defaultRouter = require('./routes/default');
 
 var app = express();
+
+app.use(session({
+    secret: "secret",
+    saveUninitialized: true,
+    resave: true
+}))
 
 // view engine setup
 app.engine('hbs', hbs({
@@ -27,8 +33,9 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+require('./configs/configsPassport')(app);
 app.use('/admin', authRouter);
-//app.use('/', defaultRouter);
+app.use('/', defaultRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
