@@ -22,7 +22,6 @@ module.exports = function configPassport(app) {
             },
             json: true
         };
-
         let result = await rp(options);
         if (!result) {
             return done(null, false, { Success: false, Message: "Username or Password incorrect!" });
@@ -32,8 +31,12 @@ module.exports = function configPassport(app) {
     }))
 
     passport.serializeUser(function(user, done) {
-        done(null, user.id);
+        done(null, user);
     });
+
+    passport.deserializeUser(function(obj, done) {
+        done(null, false);  // invalidates the existing login session.
+      });
 
     function isAuthentication(req, res, next) {
         if (req.isAuthenticated()) {

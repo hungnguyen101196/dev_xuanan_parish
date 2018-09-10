@@ -6,5 +6,6 @@ const defaultRouter = express.Router();
 const LoginController = require('../controllers/LoginController');
 defaultRouter.route('/login').get(LoginController.index);
 defaultRouter.route('/login').post(LoginController.login);
+defaultRouter.route('/register').post(LoginController.register);
 
 module.exports = defaultRouter;
